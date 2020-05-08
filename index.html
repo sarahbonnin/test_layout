@@ -1,32 +1,104 @@
 <!doctype html>
-<html lang="en>
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <title>HTML5 / CSS3 Drop-Down Navigation Menu</title>
-    <meta name="description" content="">
- 
-    <link rel="stylesheet" href="style.css">
- 
+	<meta charset="utf-8">
+	<title>Accessible Multi-Level Dropdown Navigation</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
+
 </head>
+<body>
+	<div class="container">
 
-        <body>
- <div class="nav">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <div class="dropdown">
-    <button class="dropbtn">Dropdown
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </div>
-</div> 
-        </body>
+		<h1>Accessible Multi-Level Dropdown Navigation</h1>
+
+		<nav id="nav">
+			<ul>
+
+				<!-- Menu tooggle on smaller screens  -->
+				<li id="toggleMenu" role="button" aria-haspopup="true">
+					
+					<a href="/sitemap.html"> 
+						<i aria-hidden="true" class="fa fa-bars"></i> <i aria-hidden="true" class="fa fa-times"></i> 
+
+						<!-- As icons are being used to represent open/close, 
+							provide hidden text for screen readers -->
+						<span id="toggleMenu-text">Toggle Navigation</span>
+						
+					</a>
+				</li>
+				
+				<!-- Simple menu item without sub menu -->
+				<li><a href="/">Level 1</a></li>
+				
+				<!--  Menu item with one sub menu -->
+				<li>
+					<a href="/sitemap.html">Level 2</a>
+
+					<ul>
+						<li><a href="/">Example Link</a></li>
+						<li><a href="/">Example Link</a></li>
+					</ul>
+				</li>
 
 
+				<!--  Menu item with two levels of sub menu -->
+				<li>
+					<a href="/sitemap.html">Level 3</a>
+					<ul>
+						<li><a href="/">Example Link</a></li>
+						<li><a href="/">Example Link</a></li>
+
+						<li>
+							<a href="/">Example Link</a>
+							<ul>
+								<li><a href="/">Example Link</a></li>
+								<li><a href="/">Example Link</a></li>
+								<li><a href="/">Example Link</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+
+				
+				<li><a href="/">Level 1</a></li>
+
+				<li>
+					<a href="/sitemap.html">Level 3</a>
+
+					<ul>
+						<li><a href="/">Example Link</a></li>
+						<li>
+							<a href="/">Example Link</a>
+
+							<ul>
+								<li><a href="/">Example Link</a></li>
+								<li><a href="/">Example Link</a></li>
+
+							</ul>
+						</li>
+						<li>
+							<a href="/">Example Link</a>
+
+							<ul>
+								<li><a href="/">Example Link</a></li>
+								<li><a href="/">Example Link</a></li>
+							</ul>
+						</li>
+						<li><a href="/">Example Link</a></li>
+					</ul>
+				</li>
+
+			</ul>
+		</nav>
+
+	</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
 </html>
-
-

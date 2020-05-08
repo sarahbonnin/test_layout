@@ -1,69 +1,203 @@
- /* Navbar container */
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  font-family: Arial;
-}
+html {
+  font-family: 'Proxima Nova', 'Helvetica Neue', 'Arial', sans-serif; }
 
-/* Links inside the navbar */
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
+.container {
+  width: 90%;
+  margin: 10vh auto; }
+
+a {
+  color: inherit; }
+
+/*
+ *	Accessible Multi-Level Dropdown Navigation Menu
+ *	Created by Ire Aderinokun
+ *
+ */
+/* Resets */
+#nav, #nav ul, #nav li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  box-sizing: border-box; }
+
+#nav {
+  position: relative;
+  min-height: 60px;
+  max-width: 100%;
+  background-color: #ffdb3a;
+  color: #000;
+  border: 1px solid #D9BA31; }
+  @media screen and (min-width: 650px) {
+    #nav {
+      display: inline-block; } }
+  @media screen and (max-width: 650px) {
+    #nav {
+      display: block; } }
+
+#nav li {
+  position: relative; }
+
+#nav a {
   text-decoration: none;
-}
+  height: 100%;
+  display: block;
+  padding: 0 20px; }
 
-/* The dropdown container */
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
+@media screen and (min-width: 650px) {
+  #nav a:focus {
+    outline: none; } }
 
-/* Dropdown button */
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
-}
+.plusMark {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 700; }
 
-/* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
+@media screen and (min-width: 650px) {
+  #nav li {
+    text-align: left;
+    width: 200px; } }
+@media screen and (max-width: 650px) {
+  #nav li {
+    text-align: center;
+    width: 100%; } }
 
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
+/* Any sub menu */
+@media screen and (min-width: 650px) {
+  a + ul {
+    position: absolute; }
+    a + ul:not(.js-showElement) {
+      display: none; } }
+@media screen and (max-width: 650px) {
+  a + ul {
+    position: relative; }
+    a + ul:not(.js-hideElement) {
+      display: block; } }
+
+/* The Main Navigation Bar - Navigation Level One */
+#nav > ul, .fa {
+  height: 100%;
+  line-height: 60px; }
+
+#nav > ul > li {
+  position: relative;
+  text-align: center; }
+  @media screen and (min-width: 650px) {
+    #nav > ul > li {
+      float: left;
+      width: auto; } }
+  @media screen and (max-width: 650px) {
+    #nav > ul > li {
+      float: none;
+      display: block;
+      width: 100%; } }
+
+#nav > ul > li > a {
+  background-color: #ffdb3a; }
+  #nav > ul > li > a:hover, #nav > ul > li > a:focus, #nav > ul > li > a.js-openSubMenu {
+    background-color: #D9BA31; }
+
+#nav > ul > li:hover > a, #nav > ul > li:focus > a {
+  background-color: #D9BA31; }
+
+@media screen and (min-width: 650px) {
+  #nav > ul > li:not(:last-child) {
+    border-right: 1px solid #D9BA31;
+    border-bottom: none; } }
+@media screen and (max-width: 650px) {
+  #nav > ul > li:not(:last-child) {
+    border-right: none; }
+    #nav > ul > li:not(:last-child):not(:first-child) {
+      border-bottom: 1px solid #D9BA31; } }
+
+#nav > ul > li:not(#toggleMenu):not(.js-showElement) {
+  /* first level nav li except toggleMenu icon */ }
+  @media screen and (min-width: 650px) {
+    #nav > ul > li:not(#toggleMenu):not(.js-showElement) {
+      display: inline-block; } }
+  @media screen and (max-width: 650px) {
+    #nav > ul > li:not(#toggleMenu):not(.js-showElement) {
+      display: none; } }
+
+@media screen and (min-width: 650px) {
+  #nav #toggleMenu {
+    display: none; } }
+@media screen and (max-width: 650px) {
+  #nav #toggleMenu {
+    display: block;
+    width: 100%; }
+    #nav #toggleMenu.js-open {
+      border-bottom: 1px solid #D9BA31; }
+      #nav #toggleMenu.js-open .fa-times {
+        display: block; }
+      #nav #toggleMenu.js-open .fa-bars {
+        display: none; }
+      #nav #toggleMenu.js-open a {
+        background-color: #D9BA31; }
+    #nav #toggleMenu:not(.js-open) .fa-times {
+      display: none; }
+    #nav #toggleMenu:not(.js-open) .fa-bars {
+      display: block; } }
+
+span#toggleMenu-text {
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+  opacity: 0; }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
+/* Second Level Dropdown */
+#nav > ul > li > ul {
+  background-color: #D9BA31; }
+  @media screen and (min-width: 650px) {
+    #nav > ul > li > ul {
+      top: 60px;
+      left: 0; } }
+  @media screen and (max-width: 650px) {
+    #nav > ul > li > ul {
+      width: 100%;
+      position: relative; }
+      #nav > ul > li > ul:not(.js-showElement) {
+        display: none; } }
 
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
+#nav > ul > li > ul > li > a {
+  background-color: #D9BA31; }
+  #nav > ul > li > ul > li > a:hover, #nav > ul > li > ul > li > a:focus {
+    background-color: #ffdb3a; }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-} 
+#nav > ul > li > ul > li:not(:last-child) a {
+  border-bottom: 1px solid #ffdb3a; }
+
+/* Third Level Dropdown */
+@media screen and (min-width: 650px) {
+  #nav > ul > li > ul > li > ul {
+    top: 0;
+    left: 200px;
+    /* width of ul */ } }
+@media screen and (max-width: 650px) {
+  #nav > ul > li > ul > li > ul {
+    width: 100%;
+    position: relative; }
+    #nav > ul > li > ul > li > ul:not(.js-showElement) {
+      display: none; } }
+
+#nav > ul > li > ul > li > ul > li > a {
+  background-color: #ffdb3a; }
+  #nav > ul > li > ul > li > ul > li > a:hover, #nav > ul > li > ul > li > ul > li > a:focus {
+    background-color: #D9BA31; }
+
+#nav > ul > li > ul > li > ul > li:not(:last-child) > a {
+  border-bottom: 1px solid #D9BA31; }
+
+/* Javascript classes */
+#nav .js-hideElement {
+  display: none; }
+
+#nav .js-showElement {
+  display: block; }
+
+/* Fallback for users without javascript */
+html.no-js li:hover > a + ul, html.no-js li:focus > a + ul {
+  display: block; }
+@media screen and (max-width: 650px) {
+  html.no-js #nav:hover > ul > li:not(#toggleMenu), html.no-js #nav:focus > ul > li:not(#toggleMenu) {
+    display: block; }
+  html.no-js #nav:hover li:hover > a + ul, html.no-js #nav:hover li:focus > a + ul, html.no-js #nav:focus li:hover > a + ul, html.no-js #nav:focus li:focus > a + ul {
+    display: block; } }
